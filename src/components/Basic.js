@@ -4,6 +4,7 @@ import withDragDropContext from './withDnDContext'
 import moment from 'moment'
 import 'moment/locale/hr'
 import '../scheduler/css/style.css'
+import 'antd/lib/style/index.css'
 import '../css/basic.css'
 
 class Basic extends Component{
