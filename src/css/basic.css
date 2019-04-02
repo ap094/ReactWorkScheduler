@@ -13,31 +13,3 @@
 {
     margin-top: -5px;
 }
-.header2-text {
-    font-size: 16px;
-    font-weight: 500;
-}
-.header3-text {
-    font-size: 15px;
-    font-weight: 500;
-}
-.round-all {
-    border-radius: 5px;
-}
-
-.round-head {
-    border-radius: 5px 0px 0px 5px;
-}
-
-.round-tail {
-    border-radius: 0px 5px 5px 0px;
-}
-.event-item {
-
-    text-align: center;
-    font-size: 100%;
-}
-.ant-radio-button-wrapper
-{
-    font-size: 15px;
-}

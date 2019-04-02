@@ -1,35 +1,17 @@
 import React, {Component} from 'react'
+import Scheduler, {AddMorePopover, SchedulerData, ViewTypes, DATE_FORMAT, DemoData} from '../scheduler/index'
+import withDragDropContext from './withDnDContext'
 import moment from 'moment'
 import 'moment/locale/hr'
-import Scheduler, {AddMorePopover, SchedulerData, ViewTypes, DATE_FORMAT, DemoData} from 'react-big-scheduler'
-import withDragDropContext from './withDnDContext'
-import 'react-big-scheduler/lib/css/style.css'
+import '../scheduler/css/style.css'
 import '../css/basic.css'
-import 'antd/lib/style/index.css'
 
 class Basic extends Component{
     constructor(props){
         super(props);
 
         let today = moment().format(DATE_FORMAT);
-        let schedulerData = new SchedulerData(today, ViewTypes.Week, false, false, {
-            dayMaxEvents: 3,
-            weekMaxEvents: 3,
-            monthMaxEvents: 3,
-            besidesWidth: 40,
-            tableHeaderHeight: 50,
-            dayCellWidth: 45,
-            eventItemHeight: 40,
-            eventItemLineHeight: 42,
-            dayStartFrom: 5,
-            resourceName: 'Employees',            
-            nonAgendaDayCellHeaderFormat: 'HH:mm',
-            views: [
-                {viewName: 'Dan', viewType: ViewTypes.Day, showAgenda: false, isEventPerspective: false},
-                {viewName: 'Tjedan', viewType: ViewTypes.Week, showAgenda: false, isEventPerspective: false},
-                {viewName: 'Mjesec', viewType: ViewTypes.Month, showAgenda: false, isEventPerspective: false}
-            ],
-        });
+        let schedulerData = new SchedulerData(today, ViewTypes.Week, false, false);
 
         schedulerData.localeMoment.locale('hr');
         schedulerData.setResources(DemoData.resources);

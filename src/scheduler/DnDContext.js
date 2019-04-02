@@ -1,7 +1,6 @@
 import { DropTarget } from 'react-dnd'
 import {getPos} from './Util'
 import {DnDTypes} from './DnDTypes'
-import {ViewTypes} from './ViewTypes'
 import {CellUnits, DATETIME_FORMAT} from './index'
 
 export default class DnDContext {
@@ -77,6 +76,7 @@ export default class DnDContext {
                     if(config.relativeMove) {
                         newStart = localeMoment(event.start).add(localeMoment(newStart).diff(localeMoment(initialStart)), 'ms').format(DATETIME_FORMAT);
                     } else {
+                        // eslint-disable-next-line no-undef
                         if(viewType !== ViewTypes.Day) {
                             let tmpMoment = localeMoment(newStart);
                             newStart = localeMoment(event.start).year(tmpMoment.year()).month(tmpMoment.month()).date(tmpMoment.date()).format(DATETIME_FORMAT);

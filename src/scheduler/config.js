@@ -3,9 +3,9 @@ import SummaryPos from './SummaryPos'
 
 export default {
     schedulerWidth: '100%',
-    besidesWidth: 20,
+    besidesWidth: 40,
     schedulerMaxHeight: 0,
-    tableHeaderHeight: 40,
+    tableHeaderHeight: 50,
 
     agendaResourceTableWidth: 160,
     agendaMaxEventWidth: 100,
@@ -17,24 +17,24 @@ export default {
     yearResourceTableWidth: 160,
     customResourceTableWidth: 160,
 
-    dayCellWidth: 30,
+    dayCellWidth: 45,
     weekCellWidth: '12%',
     monthCellWidth: 80,
     quarterCellWidth: 80,
     yearCellWidth: 80,
     customCellWidth: 80,
 
-    dayMaxEvents: 99,
-    weekMaxEvents: 99,
-    monthMaxEvents: 99,
+    dayMaxEvents: 3,
+    weekMaxEvents: 3,
+    monthMaxEvents: 3,
     quarterMaxEvents: 99,
     yearMaxEvents: 99,
     customMaxEvents: 99,
 
-    eventItemHeight: 22,
-    eventItemLineHeight: 24,
+    eventItemHeight: 40,
+    eventItemLineHeight: 42,
     nonAgendaSlotMinHeight: 0,
-    dayStartFrom: 0,
+    dayStartFrom: 5,
     dayStopTo: 23,
     defaultEventBgColor: '#80C5F6',
     selectedAreaColor: '#7EC2F3',
@@ -58,21 +58,19 @@ export default {
     displayWeekend: true,
     relativeMove: true,
 
-    resourceName: 'Resource Name',
+    resourceName: 'Employees',
     taskName: 'Task Name',
     agendaViewHeader: 'Agenda',
-    addMorePopoverHeaderFormat: 'MMM D, YYYY dddd',
-    eventItemPopoverDateFormat: 'MMM D',
-    nonAgendaDayCellHeaderFormat: 'ha',
-    nonAgendaOtherCellHeaderFormat: 'ddd M/D',
+    addMorePopoverHeaderFormat: 'D.MMM, YYYY dddd',
+    eventItemPopoverDateFormat: 'D.MMM',
+    nonAgendaDayCellHeaderFormat: 'HH:mm',
+    nonAgendaOtherCellHeaderFormat: 'ddd D/M',
 
     minuteStep: 30,
 
     views: [
-        {viewName: 'Day', viewType: ViewTypes.Day, showAgenda: false, isEventPerspective: false},
-        {viewName: 'Week', viewType: ViewTypes.Week, showAgenda: false, isEventPerspective: false},
-        {viewName: 'Month', viewType: ViewTypes.Month, showAgenda: false, isEventPerspective: false},
-        {viewName: 'Quarter', viewType: ViewTypes.Quarter, showAgenda: false, isEventPerspective: false},
-        {viewName: 'Year', viewType: ViewTypes.Year, showAgenda: false, isEventPerspective: false},
+        {viewName: 'Dan', viewType: ViewTypes.Day, showAgenda: false, isEventPerspective: false},
+        {viewName: 'Tjedan', viewType: ViewTypes.Week, showAgenda: false, isEventPerspective: false},
+        {viewName: 'Mjesec', viewType: ViewTypes.Month, showAgenda: false, isEventPerspective: false}
     ],
 }
