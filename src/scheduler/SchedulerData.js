@@ -581,7 +581,7 @@ export default class SchedulerData {
                 while (header >= start && header <= end) {
                     let time = header.format(DATETIME_FORMAT);
                     let dayOfWeek = header.weekday();
-                    if( this.config.displayWeekend || (dayOfWeek !== 0 && dayOfWeek !== 6))
+                    if( this.config.displayWeekend || (dayOfWeek !== 5 && dayOfWeek !== 6))
                     {
                         let nonWorkingTime = this.behaviors.isNonWorkingTimeFunc(this, time);
                         headers.push({ time: time, nonWorkingTime: nonWorkingTime });
