@@ -6,6 +6,7 @@ import 'moment/locale/hr'
 import '../scheduler/css/style.css'
 import 'antd/lib/style/index.css'
 import '../css/basic.css'
+import AddEventForm from './AddEventForm'
 
 class Basic extends Component{
     constructor(props){
@@ -120,6 +121,10 @@ class Basic extends Component{
                     </input>
                     <button onClick={this.onChangeLink.bind(this)} className="btn btn-primary btn-sm">Change title</button>
                 </div> */}
+
+                <div>
+                    <AddEventForm/>
+                </div>
             </div>
         )
     }
