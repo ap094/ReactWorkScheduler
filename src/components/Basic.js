@@ -6,7 +6,7 @@ import 'moment/locale/hr'
 import '../scheduler/css/style.css'
 import 'antd/lib/style/index.css'
 import '../css/basic.css'
-import AddEventForm from './AddEventForm'
+import EditEventForm from './EditEventForm'
 
 class Basic extends Component{
     constructor(props){
@@ -24,7 +24,8 @@ class Basic extends Component{
             left: 0,
             top: 0,
             height: 0,
-            title: "New event"
+            title: "New event",
+            eventToEdit: null,
         }
 
     }
@@ -56,20 +57,13 @@ class Basic extends Component{
             </th>
         );
     }
-
-  /*onHandleChange(event) {
-        this.setState({
-            title: event.target.value
-        });
+    
+    editFinished = (event) => {
+        console.log("Edit finished func", event)
     }
-    onChangeLink() {
-        this.setState ({
-            title: this.state.title
-        });
-    } */
 
     render(){
-        const {viewModel} = this.state;
+        const {viewModel, eventToEdit} = this.state;
 
         let popover = <div />;
         if (this.state.headerItem !== undefined) {
@@ -89,7 +83,17 @@ class Basic extends Component{
                     viewEvent2Text="Delete"
                 />;
         }
-    
+        
+        let editEvent = <div/>;
+        if(eventToEdit)
+        {
+            editEvent = 
+            <EditEventForm 
+                event={eventToEdit}
+                onEditFinished={this.editFinished}
+            />;
+        }
+
         return (
 
             <div>
@@ -114,18 +118,9 @@ class Basic extends Component{
                     />
                     {popover}
                 </div>
-            {/*<div className="changeTitle">
-                    <input 
-                        value={this.state.title} 
-                        onChange={(event) => this.onHandleChange(event)}>
-                    </input>
-                    <button onClick={this.onChangeLink.bind(this)} className="btn btn-primary btn-sm">Change title</button>
-                </div> */}
-
-                <div>
-                    <AddEventForm/>
-                </div>
+                {editEvent}
             </div>
+            
         )
     }
 
@@ -205,9 +200,10 @@ class Basic extends Component{
     }
 
     edit = (schedulerData, event) => {
-
-        alert("You just clicked on edit button!");
-  
+        this.setState({
+            viewModel: schedulerData,
+            eventToEdit: event
+        });
     };
 
     delete = (schedulerData, event) => {
