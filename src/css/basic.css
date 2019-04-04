@@ -1,15 +1,19 @@
-.btn
+.addEvent
 {
-    margin-top: 50px;
-    margin-left: 30px;
+    margin-top: 10px; 
+    margin-bottom: 50px;
 }
-.changeTitle
+.addIcon
 {
     position: absolute;
-    left: 20px;
-    margin-top: 20px; 
+    left: 1%;
+    top: 10px;
 }
-.changeTitle > button
+#datetime-local
 {
-    margin-top: -5px;
+    width: 220px;
+}
+.selectReso
+{
+    width: 220px;
 }

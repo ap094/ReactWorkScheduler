@@ -2,42 +2,41 @@ const DemoData = {
     resources: [
         {
             id: 'r1',
-            name: 'Resource1',
+            name: 'Ante Antic',
         },
         {
             id: 'r2',
-            name: 'Resource2',
+            name: 'Mate Matic',
         },
         {
             id: 'r3',
-            name: 'Resource3',
+            name: 'Sime Simic',
         },
         {
             id: 'r4',
-            name: 'Resource4',
+            name: 'Jure Juric',
         },
         {
             id: 'r5',
-            name: 'Resource5',
+            name: 'Ivo Ivic',
         },
         {
             id: 'r6',
-            name: 'Resource6',
+            name: 'Luka Lukic',
         },
         {
             id: 'r7',
-            name: 'Resource7',
+            name: 'Kreso Kresic',
         }
     ],
     events: [
         {
             id: 1,
+            resourceId: 'r2',
             start: '2019-04-18 09:30:00',
             end: '2019-04-19 23:30:00',
-            resourceId: 'r1',
             title: 'I am finished',
-            bgColor: '#D9D9D9',
-            showPopover: false
+
         },
         {
             id: 2,

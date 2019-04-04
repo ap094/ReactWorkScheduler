@@ -9,11 +9,11 @@ export default class EditEventForm extends React.Component {
     super(props);
     this.state = {
       open: true,
-      event: { ...props.event },
+      event: { ...this.props.event },
       formEvent:{
-        title: props.event.title,
-        start: props.event.start,
-        end: props.event.end,
+        title: this.props.event.title,
+        start: this.props.event.start,
+        end: this.props.event.end,
       }
     };
     
@@ -25,20 +25,28 @@ export default class EditEventForm extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    this.props.eventState()
+
   };
 
   handleCloseSuccess = () => {
-    this.props.onEditFinished(this.state.event)
+    this.props.onEditFinished(this.state.formEvent)
+    this.props.eventState()
+    this.setState({
+      formEvent:{
+          title: '',
+          start: '',
+          end: ''
+      }
+    });
     this.handleClose();
   };
 
-  handleChange = (title, start, end) => event => {
+  handleChange = (name) => event => {
     this.setState({
       formEvent: {
         ...this.state.formEvent,
-        [title]: event.target.value,
-        [start]: event.target.value,
-        [end]: event.target.value    
+        [name]: event.target.value 
       }
     });
   };
@@ -47,9 +55,9 @@ export default class EditEventForm extends React.Component {
     const {formEvent:{title, start, end}} = this.state;
     return (
     <Fragment>
-      <Fab onClick={this.handleClickOpen}>
+{/*       <Fab onClick={this.handleClickOpen}>
         <AddIcon/>
-      </Fab>
+      </Fab>  */}
         <Dialog
             open={this.state.open}
             onClose={this.handleClose}

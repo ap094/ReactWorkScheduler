@@ -7,6 +7,8 @@ import '../scheduler/css/style.css'
 import 'antd/lib/style/index.css'
 import '../css/basic.css'
 import EditEventForm from './EditEventForm'
+import AddNewEvent from './AddNewEvent';
+import demoData from '../scheduler/DemoData'
 
 class Basic extends Component{
     constructor(props){
@@ -26,10 +28,16 @@ class Basic extends Component{
             height: 0,
             title: "New event",
             eventToEdit: null,
+            events: demoData.events,
+            resources: demoData.resources
         }
-
     }
 
+    handle = () => {
+        this.setState({
+            eventToEdit: null
+        })
+    }
     nonAgendaCellHeaderTemplateResolver = (schedulerData, item, formattedDateItems, style) => {
         let datetime = schedulerData.localeMoment(item.time);
         let isCurrentDate = false;
@@ -59,7 +67,13 @@ class Basic extends Component{
     }
     
     editFinished = (event) => {
-        console.log("Edit finished func", event)
+        console.log("Edit finished func")
+        this.setState(({events}) => ({
+            events:[
+                ...events,
+                event
+            ]
+        }))
     }
 
     render(){
@@ -91,12 +105,19 @@ class Basic extends Component{
             <EditEventForm 
                 event={eventToEdit}
                 onEditFinished={this.editFinished}
+                eventState={this.handle}
             />;
         }
 
         return (
 
             <div>
+                <div className="addEvent">
+                    <AddNewEvent
+                        onEditFinished={this.editFinished}
+                        resources={this.state.resources}
+                    />
+                </div>
                 <div>
                     <Scheduler 
                         schedulerData={viewModel}
