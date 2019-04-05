@@ -45,6 +45,15 @@ export default class EditEventForm extends React.Component {
   handleSubmit = () => {
     const data = this.state.formEvent
     this.props.onCreate(data)
+    this.setState({
+      formEvent:{
+        id: '',
+        title: '',
+        start: '',
+        end: '',
+        resourceId: ''
+      }
+    });
     this.handleClose();
   };
 
