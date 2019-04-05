@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import AddIcon from '@material-ui/icons/Add';
 import {
-  Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Fab
+  Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField
 } from '@material-ui/core'
 
 export default class EditEventForm extends React.Component {
@@ -25,13 +24,13 @@ export default class EditEventForm extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
-    this.props.eventState()
+    this.props.resetEventState()
 
   };
 
-  handleCloseSuccess = () => {
-    this.props.onEditFinished(this.state.formEvent)
-    this.props.eventState()
+  handleSubmit = () => {
+    this.props.onCreate(this.state.formEvent)
+    this.props.resetEventState()
     this.setState({
       formEvent:{
           title: '',
@@ -55,9 +54,6 @@ export default class EditEventForm extends React.Component {
     const {formEvent:{title, start, end}} = this.state;
     return (
     <Fragment>
-{/*       <Fab onClick={this.handleClickOpen}>
-        <AddIcon/>
-      </Fab>  */}
         <Dialog
             open={this.state.open}
             onClose={this.handleClose}
@@ -93,8 +89,8 @@ export default class EditEventForm extends React.Component {
                 <Button onClick={this.handleClose} color="secondary">
                 Cancel
                 </Button>
-                <Button onClick={this.handleCloseSuccess} color="primary">
-                Create
+                <Button onClick={this.handleSubmit} color="primary">
+                Update
                 </Button>
             </DialogActions>
         </Dialog>

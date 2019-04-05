@@ -10,7 +10,7 @@ export default class AddNewEvent extends React.Component {
     super(props);
     this.state = {
       open: false,
-      formEvent:{
+      newEvent:{
         title: '',
         resource: '',
         start: '',
@@ -30,11 +30,11 @@ export default class AddNewEvent extends React.Component {
 
   handleSubmit = () => {
 
-    const {formEvent} = this.state;
-    this.props.onEditFinished(formEvent)
+    const {newEvent} = this.state;
+    this.props.onCreate(newEvent)
     this.setState({
         open: false,
-        formEvent:{
+        newEvent:{
             title: '',
             resource: '',
             start: '',
@@ -46,15 +46,15 @@ export default class AddNewEvent extends React.Component {
 
   handleChange = (name) => event => {
     this.setState({
-      formEvent: {
-        ...this.state.formEvent,
+      newEvent: {
+        ...this.state.newEvent,
         [name]: event.target.value
       }
     });
   };
 
   render() {
-    const {formEvent:{title, start, end, resource}} = this.state;
+    const {newEvent:{title, start, end, resource}} = this.state;
     const employees = this.props.resources;
 
     return (

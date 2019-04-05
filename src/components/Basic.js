@@ -33,11 +33,6 @@ class Basic extends Component{
         }
     }
 
-    handle = () => {
-        this.setState({
-            eventToEdit: null
-        })
-    }
     nonAgendaCellHeaderTemplateResolver = (schedulerData, item, formattedDateItems, style) => {
         let datetime = schedulerData.localeMoment(item.time);
         let isCurrentDate = false;
@@ -65,9 +60,15 @@ class Basic extends Component{
             </th>
         );
     }
+
+    handleEventToEditState = () => {
+        this.setState({
+            eventToEdit: null
+        })
+    }
     
-    editFinished = (event) => {
-        console.log("Edit finished func")
+    handleEventCreate = (event) => {
+        console.log("Event create func")
         this.setState(({events}) => ({
             events:[
                 ...events,
@@ -104,8 +105,8 @@ class Basic extends Component{
             editEvent = 
             <EditEventForm 
                 event={eventToEdit}
-                onEditFinished={this.editFinished}
-                eventState={this.handle}
+                onCreate={this.handleEventCreate}
+                resetEventState={this.handleEventToEditState}
             />;
         }
 
@@ -114,7 +115,7 @@ class Basic extends Component{
             <div>
                 <div className="addEvent">
                     <AddNewEvent
-                        onEditFinished={this.editFinished}
+                        onCreate={this.handleEventCreate}
                         resources={this.state.resources}
                     />
                 </div>
