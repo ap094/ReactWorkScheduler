@@ -12,7 +12,7 @@ export default class EditEventForm extends React.Component {
       formEvent:{
         title: this.props.event.title,
         start: this.props.event.start,
-        end: this.props.event.end,
+        end: this.props.event.end
       }
     };
     

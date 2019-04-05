@@ -32,9 +32,9 @@ const DemoData = {
     events: [
         {
             id: 1,
+            start: '2019-04-04 09:30:00',
+            end: '2019-04-04 13:30:00',
             resourceId: 'r2',
-            start: '2019-04-18 09:30:00',
-            end: '2019-04-19 23:30:00',
             title: 'I am finished',
 
         },

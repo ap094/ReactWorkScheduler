@@ -73,10 +73,10 @@ class AddMorePopover extends Component {
         return (
             <div className="add-more-popover-overlay"  style={{left: left, top: top, height: height, width: '170px'}}>
                 <Row type="flex" justify="space-between" align="middle">
-                    <Col span="22">
+                    <Col span={22}>
                         <span className="base-text">{header}</span>
                     </Col>
-                    <Col span="2">
+                    <Col span={2}>
                         <span onClick={() => {closeAction(undefined);}}><Icon type="cross"></Icon></span>
                     </Col>
                 </Row>

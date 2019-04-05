@@ -1,19 +1,6 @@
-.addEvent
-{
-    margin-top: 10px; 
-    margin-bottom: 50px;
-}
 .addIcon
 {
     position: absolute;
-    left: 1%;
+    left: 10%;
     top: 10px;
-}
-#datetime-local
-{
-    width: 220px;
-}
-.selectReso
-{
-    width: 220px;
 }
