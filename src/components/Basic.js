@@ -5,18 +5,16 @@ import moment from 'moment'
 import 'moment/locale/hr'
 import '../scheduler/css/style.css'
 import 'antd/lib/style/index.css'
-import '../css/basic.css'
-import EditEventForm from './EditEventForm'
-import demoData from '../scheduler/DemoData'
-import AddEventForm from './AddEventForm'
 import 'antd/lib/modal/style/index.css';
 import 'antd/lib/button/style/index.css'
 import 'antd/lib/form/style/index.css'
 import 'antd/lib/input/style/index.css'
+import '../css/basic.css'
+import EditEventForm from './EditEventForm'
+import demoData from '../scheduler/DemoData'
+import AddEventForm from './AddEventForm'
 import AddIcon from '@material-ui/icons/Add';
-import {
-  Fab
-} from '@material-ui/core'
+import {Fab} from '@material-ui/core'
 
 class Basic extends Component{
     constructor(props){
@@ -76,15 +74,17 @@ class Basic extends Component{
         })
     }
     
-    handleEventCreate = (event) => {
-        console.log("Event create func")
-        
-        this.setState(({events}) => ({
-            events:[
-                ...events,
-                event
-            ]
-        })) 
+    handleEventUpdateState = (data) => {
+       let events = this.state.viewModel.events;
+       events = events.map(event => {
+           if(event.id === data.id){
+               event.id = data.id;
+               event.title = data.title;
+               event.start = data.start;
+               event.end = data.end;
+               event.resourceId = data.resourceId;
+           }
+        });
     }
 
     /*****************ADD EVENT*******************/
@@ -138,7 +138,7 @@ class Basic extends Component{
             editEvent = 
             <EditEventForm 
                 event={eventToEdit}
-                onCreate={this.handleEventCreate}
+                onCreate={this.handleEventUpdateState}
                 resetEventState={this.handleEventToEditState}
             />;
         }

@@ -10,12 +10,26 @@ export default class EditEventForm extends React.Component {
       open: true,
       event: { ...this.props.event },
       formEvent:{
-        title: this.props.event.title,
-        start: this.props.event.start,
-        end: this.props.event.end
+        id: '',
+        title: '',
+        start: '',
+        end: '',
+        resourceId: ''
       }
     };
     
+  }
+
+  componentDidMount(){ 
+    this.setState({
+      formEvent:{
+        id: this.props.event.id,
+        title: this.props.event.title,
+        start: this.props.event.start,
+        end: this.props.event.end,
+        resourceId:this.props.event.resourceId,
+      }
+    });
   }
 
   handleClickOpen = () => {
@@ -29,15 +43,8 @@ export default class EditEventForm extends React.Component {
   };
 
   handleSubmit = () => {
-    this.props.onCreate(this.state.formEvent)
-    this.props.resetEventState()
-    this.setState({
-      formEvent:{
-          title: '',
-          start: '',
-          end: ''
-      }
-    });
+    const data = this.state.formEvent
+    this.props.onCreate(data)
     this.handleClose();
   };
 
