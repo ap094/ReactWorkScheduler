@@ -1,6 +1,6 @@
 ## React work scheduler
 
-##Setup
+<h3><ins>Setup:</ins></h3>
 In the project directory, run:
 
 ### `npm install`
