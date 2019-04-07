@@ -5,16 +5,13 @@ import moment from 'moment'
 import 'moment/locale/hr'
 import '../scheduler/css/style.css'
 import 'antd/lib/style/index.css'
-import 'antd/lib/modal/style/index.css';
-import 'antd/lib/button/style/index.css'
-import 'antd/lib/form/style/index.css'
-import 'antd/lib/input/style/index.css'
 import '../css/basic.css'
 import EditEventForm from './EditEventForm'
 import demoData from '../scheduler/DemoData'
 import AddEventForm from './AddEventForm'
 import AddIcon from '@material-ui/icons/Add';
 import {Fab} from '@material-ui/core'
+
 
 class Basic extends Component{
     constructor(props){
@@ -32,7 +29,6 @@ class Basic extends Component{
             left: 0,
             top: 0,
             height: 0,
-            title: "New event",
             eventToEdit: null,
             events: demoData.events,
             resources: demoData.resources,
@@ -266,7 +262,7 @@ class Basic extends Component{
 
         let newEvent = {
             id: newFreshId,
-            title: this.state.title,
+            title: 'New event',
             start: start,
             end: end,
             resourceId: slotId,

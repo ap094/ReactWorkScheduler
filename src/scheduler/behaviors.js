@@ -48,22 +48,22 @@ export const getNonAgendaViewBodyCellBgColor = (schedulerData, slotId, header) =
 export const getDateLabel = (schedulerData, viewType, startDate, endDate) => {
     let start = schedulerData.localeMoment(startDate);
     let end = schedulerData.localeMoment(endDate);
-    let dateLabel = start.format('MMM D, YYYY');
+    let dateLabel = start.format('D. MMMM, YYYY');
 
     if(viewType === ViewTypes.Week || (start != end && (
         viewType === ViewTypes.Custom || viewType === ViewTypes.Custom1 || viewType === ViewTypes.Custom2
     ))) {
-        dateLabel = `${start.format('MMM D')}-${end.format('D, YYYY')}`;
+        dateLabel = `${start.format('D')}-${end.format('D MMM, YYYY')}`;
         if(start.month() !== end.month())
-            dateLabel = `${start.format('MMM D')}-${end.format('MMM D, YYYY')}`;
+            dateLabel = `${start.format('D MMM')}-${end.format('D MMM, YYYY')}`;
         if(start.year() !== end.year())
-            dateLabel = `${start.format('MMM D, YYYY')}-${end.format('MMM D, YYYY')}`;
+            dateLabel = `${start.format('D MMM, YYYY')}-${end.format('D MMM, YYYY')}`;
     }
     else if(viewType === ViewTypes.Month){
-        dateLabel = start.format('MMMM YYYY');
+        dateLabel = start.format('MMMM, YYYY');
     }
     else if(viewType === ViewTypes.Quarter){
-        dateLabel = `${start.format('MMM D')}-${end.format('MMM D, YYYY')}`;
+        dateLabel = `${start.format('D MMM')}-${end.format('D MMM, YYYY')}`;
     }
     else if(viewType === ViewTypes.Year) {
         dateLabel = start.format('YYYY');
@@ -95,7 +95,7 @@ export const isNonWorkingTime = (schedulerData, time) => {
     const { localeMoment } = schedulerData;
     if(schedulerData.cellUnit === CellUnits.Hour){
         let hour = localeMoment(time).hour();
-        if(hour < 6 || hour > 22)
+        if(hour < 8 || hour > 20)
             return true;
     }
     else {

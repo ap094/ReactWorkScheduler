@@ -61,8 +61,8 @@ export default {
     resourceName: 'Employees',
     taskName: 'Task Name',
     agendaViewHeader: 'Agenda',
-    addMorePopoverHeaderFormat: 'D.MMM, YYYY dddd',
-    eventItemPopoverDateFormat: 'D.MMM',
+    addMorePopoverHeaderFormat: 'dddd, DD.MM.YYYY.',
+    eventItemPopoverDateFormat: 'D. MMM',
     nonAgendaDayCellHeaderFormat: 'HH:mm',
     nonAgendaOtherCellHeaderFormat: 'ddd D/M',
 

@@ -1,5 +1,9 @@
 import React from 'react'
 import { Modal, Form, Input, Select } from 'antd';
+import 'antd/lib/modal/style/index.css'
+import 'antd/lib/button/style/index.css'
+import 'antd/lib/form/style/index.css'
+import 'antd/lib/input/style/index.css'
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -16,7 +20,7 @@ const AddEventForm = Form.create()(
                 onCancel={onCancel}
                 onOk={onCreate}
             >
-                <Form layout="vertical" >
+                <Form layout="vertical">
                     <FormItem label="Title">
                         {getFieldDecorator('title', {
                             rules: [{ required: true, message: 'Please input the name of the event!' }],
