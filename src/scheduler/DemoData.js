@@ -139,6 +139,16 @@ const DemoData = {
             resourceId: 'r1',
             title: 'R1 has many tasks 6'
         }
+    ],
+    colors: [
+        { value: "default", label: "Default", color: "#80C5F6" },
+        { value: "blue", label: "Blue", color: "#0052CC" },
+        { value: "green", label: "Green", color: "#36B37E" },
+        { value: "ocean", label: "Ocean", color: "#00B8D9" },
+        { value: "orange", label: "Orange", color: "#FF8B00" },
+        { value: "purple", label: "Purple", color: "#5243AA" },
+        { value: "red", label: "Red", color: "#FF5630" },
+        { value: "silver", label: "Silver", color: "#666666" }
     ]
 }
 

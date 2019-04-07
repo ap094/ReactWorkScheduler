@@ -6,7 +6,7 @@ const Option = Select.Option;
 const AddEventForm = Form.create()(
     
     (props) => {
-        const { visible, onCancel, onCreate, form, employees } = props;
+        const { visible, onCancel, onCreate, form, employees, colors } = props;
         const { getFieldDecorator } = form;
         return (
             <Modal
@@ -47,6 +47,17 @@ const AddEventForm = Form.create()(
                             rules: [{ required: true, message: 'Please input the end date!' }],
                         })(
                             <Input />
+                        )}
+                    </FormItem>
+                    <FormItem label="Event color">
+                        {getFieldDecorator('bgColor', {
+                            rules: [{ required: true, message: 'Please choose one of available colors!' }],
+                        })(
+                            <Select>
+                                {colors.map((color) =>
+                                    <Option key={color.value}>{color.label}</Option>
+                                )}
+                            </Select>
                         )}
                     </FormItem>
                 </Form>

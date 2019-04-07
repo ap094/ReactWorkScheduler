@@ -23,11 +23,11 @@ export default class EditEventForm extends React.Component {
   componentDidMount(){ 
     this.setState({
       formEvent:{
-        id: this.props.event.id,
-        title: this.props.event.title,
-        start: this.props.event.start,
-        end: this.props.event.end,
-        resourceId:this.props.event.resourceId,
+        id: this.state.event.id,
+        title: this.state.event.title,
+        start: this.state.event.start,
+        end: this.state.event.end,
+        resourceId:this.state.event.resourceId,
       }
     });
   }

@@ -36,6 +36,7 @@ class Basic extends Component{
             eventToEdit: null,
             events: demoData.events,
             resources: demoData.resources,
+            colors: demoData.colors,
             visible: false
         }
     }
@@ -100,7 +101,7 @@ class Basic extends Component{
             if (err) {
                 return;
             }
-            this.addEvent(values.title, values.start, values.end, values.resourceId)
+            this.addEvent(values.title, values.start, values.end, values.resourceId, values.bgColor)
             form.resetFields();
             this.setState({ visible: false });
         });
@@ -145,7 +146,7 @@ class Basic extends Component{
 
         let leftCustomHeader = (
             <div>
-                <Fab onClick={this.showModal} color="primary" className="addIcon">
+                <Fab onClick={this.showModal} color="primary">
                     <AddIcon/>
                 </Fab>
                 <br/>
@@ -156,6 +157,7 @@ class Basic extends Component{
                     onCreate={this.handleCreate}
                     addEvent={this.addEvent}
                     employees={this.state.resources}
+                    colors={this.state.colors}
                 />
             </div>
         );
@@ -191,20 +193,21 @@ class Basic extends Component{
         )
     }
 
-    addEvent = (titleName, start, end, slotId) =>{
+    addEvent = (titleName, start, end, slotId, color) =>{
         let schedulerData = this.state.viewModel;
-        let newFreshId = 0;
+        let newId = 0;
         schedulerData.events.forEach((item) => {
-            if(item.id >= newFreshId)
-                newFreshId = item.id + 1;
+            if(item.id >= newId)
+            newId = item.id + 1;
         });
 
         let newEvent = {
-            id: newFreshId,
+            id: newId,
             title: titleName,
             start: start,
             end: end,
-            resourceId: slotId
+            resourceId: slotId,
+            bgColor: color
         }   
         schedulerData.addEvent(newEvent);
         this.setState({
