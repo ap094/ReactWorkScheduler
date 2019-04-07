@@ -185,7 +185,6 @@ class Basic extends Component{
                 </div>
                 {editEvent}
             </div>
-            
         )
     }
 

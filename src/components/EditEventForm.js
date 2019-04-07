@@ -17,7 +17,6 @@ export default class EditEventForm extends React.Component {
         resourceId: ''
       }
     };
-    
   }
 
   componentDidMount(){ 
@@ -69,7 +68,7 @@ export default class EditEventForm extends React.Component {
   render() {
     const {formEvent:{title, start, end}} = this.state;
     return (
-    <Fragment>
+      <Fragment>
         <Dialog
             open={this.state.open}
             onClose={this.handleClose}
