@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {
-  Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField
+ Dialog, DialogActions, DialogContent, DialogTitle, TextField
 } from '@material-ui/core'
 
 export default class EditEventForm extends React.Component {
@@ -9,24 +9,24 @@ export default class EditEventForm extends React.Component {
     this.state = {
       open: true,
       event: { ...this.props.event },
-      formEvent:{
+      updatedEvent:{
         id: '',
         title: '',
         start: '',
         end: '',
         resourceId: ''
-      }
+      },
     };
   }
 
   componentDidMount(){ 
     this.setState({
-      formEvent:{
+      updatedEvent:{
         id: this.state.event.id,
         title: this.state.event.title,
         start: this.state.event.start,
         end: this.state.event.end,
-        resourceId:this.state.event.resourceId,
+        resourceId: this.state.event.resourceId,
       }
     });
   }
@@ -42,31 +42,35 @@ export default class EditEventForm extends React.Component {
   };
 
   handleSubmit = () => {
-    const data = this.state.formEvent
-    this.props.onCreate(data)
-    this.setState({
-      formEvent:{
-        id: '',
-        title: '',
-        start: '',
-        end: '',
-        resourceId: ''
-      }
+    const newEvent = this.state.updatedEvent
+    const {schedulerData} = this.props
+    let events = schedulerData.events;
+
+    events = events.map(event => {
+        if(event.id === newEvent.id){
+            event.id = newEvent.id;
+            event.title = newEvent.title;
+            event.start = newEvent.start;
+            event.end = newEvent.end;
+            event.resourceId = newEvent.resourceId;
+            schedulerData.moveEvent(event, event.resourceId, event.title, event.start, event.end)
+        }
     });
-    this.handleClose();
+
+    this.handleClose()
   };
 
   handleChange = (name) => event => {
     this.setState({
-      formEvent: {
-        ...this.state.formEvent,
+      updatedEvent: {
+        ...this.state.updatedEvent,
         [name]: event.target.value 
       }
     });
   };
 
   render() {
-    const {formEvent:{title, start, end}} = this.state;
+    const {updatedEvent:{title, start, end}} = this.state;
     return (
       <Fragment>
         <Dialog
@@ -101,12 +105,12 @@ export default class EditEventForm extends React.Component {
                 </form>
             </DialogContent>
             <DialogActions>
-                <Button onClick={this.handleClose} color="secondary">
+                <button onClick={this.handleClose} className="btn btn-primary btn-sm">
                 Cancel
-                </Button>
-                <Button onClick={this.handleSubmit} color="primary">
+                </button>
+                <button onClick={this.handleSubmit} className="btn btn-success btn-sm">
                 Update
-                </Button>
+                </button>
             </DialogActions>
         </Dialog>
     </Fragment>

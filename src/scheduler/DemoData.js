@@ -32,8 +32,8 @@ const DemoData = {
     events: [
         {
             id: 1,
-            start: '2019-04-04 09:30:00',
-            end: '2019-04-04 13:30:00',
+            start: '2019-04-09 09:30:00',
+            end: '2019-04-09 13:30:00',
             resourceId: 'r2',
             title: 'I am finished',
 
@@ -144,7 +144,6 @@ const DemoData = {
         { value: "default", label: "Default", color: "#80C5F6" },
         { value: "blue", label: "Blue", color: "#0052CC" },
         { value: "green", label: "Green", color: "#36B37E" },
-        { value: "ocean", label: "Ocean", color: "#00B8D9" },
         { value: "orange", label: "Orange", color: "#FF8B00" },
         { value: "purple", label: "Purple", color: "#5243AA" },
         { value: "red", label: "Red", color: "#FF5630" },

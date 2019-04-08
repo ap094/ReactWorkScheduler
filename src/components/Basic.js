@@ -11,6 +11,7 @@ import demoData from '../scheduler/DemoData'
 import AddEventForm from './AddEventForm'
 import AddIcon from '@material-ui/icons/Add';
 import {Fab} from '@material-ui/core'
+import DeleteDialog from './DeleteDialog';
 
 
 class Basic extends Component{
@@ -33,7 +34,8 @@ class Basic extends Component{
             events: demoData.events,
             resources: demoData.resources,
             colors: demoData.colors,
-            visible: false
+            visible: false,
+            eventToDelete: null
         }
     }
 
@@ -70,19 +72,12 @@ class Basic extends Component{
             eventToEdit: null
         })
     }
-    
-    handleEventUpdateState = (data) => {
-       let events = this.state.viewModel.events;
-       events = events.map(event => {
-           if(event.id === data.id){
-               event.id = data.id;
-               event.title = data.title;
-               event.start = data.start;
-               event.end = data.end;
-               event.resourceId = data.resourceId;
-           }
-        });
+    handleEventToDeleteState = () => {
+        this.setState({
+            eventToDelete: null
+        })
     }
+    
 
     /*****************ADD EVENT*******************/
     showModal = () => {
@@ -108,7 +103,7 @@ class Basic extends Component{
     }
     /*******************************************/
     render(){
-        const {viewModel, eventToEdit} = this.state;
+        const {viewModel, eventToEdit, eventToDelete} = this.state;
 
         let popover = <div />;
         if (this.state.headerItem !== undefined) {
@@ -135,14 +130,25 @@ class Basic extends Component{
             editEvent = 
             <EditEventForm 
                 event={eventToEdit}
-                onCreate={this.handleEventUpdateState}
                 resetEventState={this.handleEventToEditState}
+                schedulerData={this.state.viewModel}
+            />;
+        }
+
+        let deleteEvent=<div/>;
+        if(eventToDelete)
+        {
+            deleteEvent = 
+            <DeleteDialog 
+                event={eventToDelete}
+                resetEventState={this.handleEventToDeleteState}
+                schedulerData={this.state.viewModel}
             />;
         }
 
         let leftCustomHeader = (
             <div>
-                <Fab onClick={this.showModal} color="primary">
+                <Fab onClick={this.showModal} color="primary" title="Add new event">
                     <AddIcon/>
                 </Fab>
                 <br/>
@@ -184,6 +190,7 @@ class Basic extends Component{
                     {popover}
                 </div>
                 {editEvent}
+                {deleteEvent}
             </div>
         )
     }
@@ -303,11 +310,9 @@ class Basic extends Component{
     };
 
     delete = (schedulerData, event) => {
-        if(window.confirm(`Do you want to remove this event?`)){
-            schedulerData.removeEventById(event.id);
-        }
         this.setState({
-            viewModel: schedulerData
+            viewModel: schedulerData,
+            eventToDelete: event
         })
     };
 
