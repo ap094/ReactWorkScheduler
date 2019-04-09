@@ -15,7 +15,7 @@ const styles = {
   dialog: {
     minHeight: '50vh',
     maxHeight: '70vh',
-    width: "25%"
+    width: "20%"
   },
 };
 
