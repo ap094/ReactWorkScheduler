@@ -1,9 +1,25 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
  Dialog, DialogActions, DialogContent, DialogTitle, TextField
 } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles';
+import Moment from 'moment'
+import momentLocalizer from 'react-widgets-moment';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker';
+import 'react-widgets/dist/css/react-widgets.css';
+Moment.locale('hr')
+momentLocalizer();
 
-export default class EditEventForm extends React.Component {
+const styles = {
+  dialog: {
+    minHeight: '50vh',
+    maxHeight: '70vh',
+    width: "25%"
+  },
+};
+
+class EditEventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +30,7 @@ export default class EditEventForm extends React.Component {
         title: '',
         start: '',
         end: '',
-        resourceId: ''
+        resourceId: '',
       },
     };
   }
@@ -46,7 +62,7 @@ export default class EditEventForm extends React.Component {
     const {schedulerData} = this.props
     let events = schedulerData.events;
 
-    events = events.map(event => {
+    events.map(event => {
         if(event.id === newEvent.id){
             event.id = newEvent.id;
             event.title = newEvent.title;
@@ -55,6 +71,7 @@ export default class EditEventForm extends React.Component {
             event.resourceId = newEvent.resourceId;
             schedulerData.moveEvent(event, event.resourceId, event.title, event.start, event.end)
         }
+        return false
     });
 
     this.handleClose()
@@ -71,13 +88,16 @@ export default class EditEventForm extends React.Component {
 
   render() {
     const {updatedEvent:{title, start, end}} = this.state;
+    const { classes } = this.props;
+
     return (
       <Fragment>
         <Dialog
             open={this.state.open}
             onClose={this.handleClose}
+            classes={{ paper: classes.dialog }}
         >
-            <DialogTitle id="form-dialog-title">
+            <DialogTitle>
                 Edit event
             </DialogTitle>
             <DialogContent>
@@ -89,18 +109,18 @@ export default class EditEventForm extends React.Component {
                     margin="normal"
                   />
                   <br/>
-                  <TextField
-                    label="Start date"
+                  <span>Start date</span>
+                  <DateTimePicker
                     value={start}
-                    onChange={this.handleChange('start')}
-                    margin="normal"
+                    onChange={value => this.setState({ updatedEvent: { ...this.state.updatedEvent, start: value} })}
+                    format='DD-MM-YYYY HH:mm'
                   />
                   <br/>
-                  <TextField
-                    label="End date"
+                  <span>End date</span>
+                  <DateTimePicker
                     value={end}
-                    onChange={this.handleChange('end')}
-                    margin="normal"
+                    onChange={value => this.setState({ updatedEvent: { ...this.state.updatedEvent, end: value} })}
+                    format='DD-MM-YYYY HH:mm'
                   />
                 </form>
             </DialogContent>
@@ -113,8 +133,13 @@ export default class EditEventForm extends React.Component {
                 </button>
             </DialogActions>
         </Dialog>
-    </Fragment>
-
+      </Fragment>
     );
   }
 }
+
+EditEventForm.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(EditEventForm);

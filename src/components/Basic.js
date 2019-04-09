@@ -13,7 +13,6 @@ import AddIcon from '@material-ui/icons/Add';
 import {Fab} from '@material-ui/core'
 import DeleteDialog from './DeleteDialog';
 
-
 class Basic extends Component{
     constructor(props){
         super(props);
@@ -31,11 +30,11 @@ class Basic extends Component{
             top: 0,
             height: 0,
             eventToEdit: null,
+            eventToDelete: null,
             events: demoData.events,
             resources: demoData.resources,
             colors: demoData.colors,
             visible: false,
-            eventToDelete: null
         }
     }
 
@@ -77,7 +76,6 @@ class Basic extends Component{
             eventToDelete: null
         })
     }
-    
 
     /*****************ADD EVENT*******************/
     showModal = () => {
@@ -101,7 +99,7 @@ class Basic extends Component{
     saveFormRef = (form) => {
         this.form = form;
     }
-    /*******************************************/
+
     render(){
         const {viewModel, eventToEdit, eventToDelete} = this.state;
 
@@ -163,7 +161,7 @@ class Basic extends Component{
                 />
             </div>
         );
-
+                
         return (
 
             <div>
@@ -269,8 +267,8 @@ class Basic extends Component{
         let newEvent = {
             id: newFreshId,
             title: 'New event',
-            start: start,
-            end: end,
+            start: new Date(start),
+            end: new Date(end),
             resourceId: slotId,
             bgColor: 'green'
         }   

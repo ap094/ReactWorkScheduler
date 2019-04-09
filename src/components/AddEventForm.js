@@ -4,6 +4,13 @@ import 'antd/lib/modal/style/index.css'
 import 'antd/lib/button/style/index.css'
 import 'antd/lib/form/style/index.css'
 import 'antd/lib/input/style/index.css'
+import Moment from 'moment'
+import momentLocalizer from 'react-widgets-moment';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker'
+import 'react-widgets/dist/css/react-widgets.css';
+Moment.locale('hr')
+momentLocalizer();
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -39,19 +46,30 @@ const AddEventForm = Form.create()(
                             </Select>
                         )}
                     </FormItem>
-                    <FormItem label="Start date">
-                        {getFieldDecorator('start', {
-                            rules: [{ required: true, message: 'Please input the start date!' }],
-                        })(
-                            <Input />
-                        )}
-                    </FormItem>
-                    <FormItem label="End date">
-                        {getFieldDecorator('end', {
-                            rules: [{ required: true, message: 'Please input the end date!' }],
-                        })(
-                            <Input />
-                        )}
+                    <FormItem label="Date" required={true} >
+                    <div className="input-group">
+                        <FormItem>
+                            {getFieldDecorator('start', {
+                                rules: [{ required: true, message: 'Please input the start date!' }],
+                            })(
+                                <DateTimePicker
+                                    format='DD-MM-YYYY HH:mm'
+                                    placeholder="Start date"
+                                />
+                            )}
+                        </FormItem>
+                        <span className="input-group-addon"></span>
+                        <FormItem>
+                            {getFieldDecorator('end', {
+                                rules: [{ required: true, message: 'Please input the end date!' }],
+                            })(
+                                <DateTimePicker 
+                                    format='DD-MM-YYYY HH:mm'
+                                    placeholder="End date"
+                                />
+                            )}
+                        </FormItem>
+                    </div>
                     </FormItem>
                     <FormItem label="Event color">
                         {getFieldDecorator('bgColor', {

@@ -4,3 +4,7 @@
     border-radius: 10px;
     padding: 10px;
 }
+.input-group-addon
+{
+    margin-left: 25px; 
+}

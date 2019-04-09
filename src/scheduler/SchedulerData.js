@@ -346,13 +346,13 @@ export default class SchedulerData {
 
     updateEventStart(event, newStart) {
         this._detachEvent(event);
-        event.start = newStart;
+        event.start = new Date(newStart);
         this._attachEvent(event);
         this._createRenderData();
     }
 
     updateEventEnd(event, newEnd) {
-        event.end = newEnd;
+        event.end = new Date(newEnd);
         this._createRenderData();
     }
 
@@ -364,8 +364,8 @@ export default class SchedulerData {
         }
         else
             event.resourceId = newSlotId;
-        event.end = newEnd;
-        event.start = newStart;
+        event.end = new Date(newEnd);
+        event.start = new Date(newStart);
         this._attachEvent(event);
         this._createRenderData();
     }
