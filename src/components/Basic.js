@@ -18,7 +18,9 @@ class Basic extends Component{
         super(props);
 
         let today = moment().format(DATE_FORMAT);
-        let schedulerData = new SchedulerData(today, ViewTypes.Week, false, false);
+        let schedulerData = new SchedulerData(today, ViewTypes.Week, false, false, {
+            crossResourceMove: false,
+        });
 
         schedulerData.localeMoment.locale('hr');
         schedulerData.setResources(DemoData.resources);
@@ -184,6 +186,7 @@ class Basic extends Component{
                         onSetAddMoreState={this.onSetAddMoreState}
                         nonAgendaCellHeaderTemplateResolver = {this.nonAgendaCellHeaderTemplateResolver}
                         leftCustomHeader={leftCustomHeader}
+                        slotClickedFunc={this.slotClickedFunc}
                     />
                     {popover}
                 </div>
@@ -329,6 +332,11 @@ class Basic extends Component{
             });
         }
     }
+
+    slotClickedFunc = (schedulerData, slot) => {
+        alert(`You just clicked a ${schedulerData.isEventPerspective ? 'task':'resource'}.{id: ${slot.slotId}, name: ${slot.slotName}}`);
+    }
+
 }
 
 export default withDragDropContext(Basic)

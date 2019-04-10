@@ -141,7 +141,6 @@ const DemoData = {
         }
     ],
     colors: [
-        { value: "default", label: "Default", color: "#80C5F6" },
         { value: "blue", label: "Blue", color: "#0052CC" },
         { value: "green", label: "Green", color: "#36B37E" },
         { value: "orange", label: "Orange", color: "#FF8B00" },

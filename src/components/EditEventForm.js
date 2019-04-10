@@ -14,7 +14,7 @@ momentLocalizer();
 const styles = {
   dialog: {
     minHeight: '50vh',
-    maxHeight: '70vh',
+    maxHeight: '60vh',
     width: "20%"
   },
 };

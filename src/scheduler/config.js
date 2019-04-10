@@ -36,7 +36,7 @@ export default {
     nonAgendaSlotMinHeight: 0,
     dayStartFrom: 5,
     dayStopTo: 23,
-    defaultEventBgColor: '#80C5F6',
+    defaultEventBgColor: 'green',
     selectedAreaColor: '#7EC2F3',
     nonWorkingTimeHeadColor: '#999999',
     nonWorkingTimeHeadBgColor: '#fff0f6',

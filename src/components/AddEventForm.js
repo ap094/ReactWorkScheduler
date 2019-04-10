@@ -32,14 +32,14 @@ const AddEventForm = Form.create()(
                         {getFieldDecorator('title', {
                             rules: [{ required: true, message: 'Please input the name of the event!' }],
                         })(
-                            <Input />
+                            <Input placeholder="New event"/>
                         )}
                     </FormItem>
                     <FormItem label="Employess">
                         {getFieldDecorator('resourceId', {
                             rules: [{ required: true, message: 'Please choose one of available employees!' }],
                         })(
-                            <Select>
+                            <Select placeholder="Name Surname">
                                 {employees.map((employe) =>
                                     <Option key={employe.id}>{employe.name}</Option>
                                 )}
@@ -73,9 +73,9 @@ const AddEventForm = Form.create()(
                     </FormItem>
                     <FormItem label="Event color">
                         {getFieldDecorator('bgColor', {
-                            rules: [{ required: true, message: 'Please choose one of available colors!' }],
+                            rules: [{ required: false, message: 'Please choose one of available colors!' }],
                         })(
-                            <Select>
+                            <Select placeholder="color">
                                 {colors.map((color) =>
                                     <Option key={color.value}>{color.label}</Option>
                                 )}
