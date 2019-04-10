@@ -1,21 +1,17 @@
 import React from 'react'
 import { Modal, Form, Input, Select } from 'antd';
 import 'antd/lib/modal/style/index.css'
-import 'antd/lib/button/style/index.css'
 import 'antd/lib/form/style/index.css'
 import 'antd/lib/input/style/index.css'
 import Moment from 'moment'
 import momentLocalizer from 'react-widgets-moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker'
 import 'react-widgets/dist/css/react-widgets.css';
-import AddIcon from '@material-ui/icons/Add';
-import {Fab} from '@material-ui/core'
 Moment.locale('hr')
 momentLocalizer();
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-
 
 class AddEventForm extends React.Component {
     constructor(props) {
@@ -54,9 +50,7 @@ class AddEventForm extends React.Component {
         const { employees, colors } = this.props;
         return(
         <div>
-        <Fab onClick={this.showModal} color="primary" title="Add new event">
-            <AddIcon/>
-        </Fab>
+        <button onClick={this.showModal} className="btn btn-primary btn-sm">Add new event</button>
         <Modal
             visible={this.state.visible}
             title="New Event"

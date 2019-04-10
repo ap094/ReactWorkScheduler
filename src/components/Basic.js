@@ -10,7 +10,7 @@ import AddEventForm from './AddEventForm'
 import EditEventForm from './EditEventForm'
 import DeleteDialog from './DeleteDialog'
 import demoData from '../scheduler/DemoData'
-
+import EmployeeInfoDialog from './EmpolyeeInfoDialog'
 
 class Basic extends Component{
     constructor(props){
@@ -30,38 +30,10 @@ class Basic extends Component{
             height: 0,
             eventToEdit: null,
             eventToDelete: null,
-            events: demoData.events,
             resources: demoData.resources,
             colors: demoData.colors,
+            employeeInfo: null
         }
-    }
-
-    nonAgendaCellHeaderTemplateResolver = (schedulerData, item, formattedDateItems, style) => {
-        let datetime = schedulerData.localeMoment(item.time);
-        let isCurrentDate = false;
-  
-        if (schedulerData.viewType === ViewTypes.Day) {
-            isCurrentDate = datetime.isSame(new Date(), 'hour');
-        }
-        else {
-            isCurrentDate = datetime.isSame(new Date(), 'day');
-        }
-  
-        if (isCurrentDate) {
-            style.backgroundColor = '#118dea';
-            style.color = 'white';
-        }
-  
-        return (
-            <th key={item.time} className={`header3-text`} style={style}>
-                {
-                    formattedDateItems.map((formattedItem, index) => (
-                        <div key={index}
-                             dangerouslySetInnerHTML={{__html: formattedItem.replace(/[0-9]/g, '<b>$&</b>')}}/>
-                    ))
-                }
-            </th>
-        );
     }
 
     handleEventToEditState = () => {
@@ -75,8 +47,14 @@ class Basic extends Component{
         })
     }
 
+    handleEmployeeInfoState = () => {
+        this.setState({
+            employeeInfo: null
+        })
+    }
+
     render(){
-        const {viewModel, eventToEdit, eventToDelete} = this.state;
+        const {viewModel, eventToEdit, eventToDelete, employeeInfo} = this.state;
 
         let popover = <div />;
         if (this.state.headerItem !== undefined) {
@@ -119,7 +97,7 @@ class Basic extends Component{
             />;
         }
 
-        let addEventForm = (
+        let addNewEvent = (
             <div>
                 <AddEventForm
                     addEvent={this.addEvent}
@@ -128,9 +106,18 @@ class Basic extends Component{
                 />
             </div>
         );
+
+        let empInfo = <div/>;
+        if(employeeInfo)
+        {
+            empInfo =
+            <EmployeeInfoDialog
+                employee={employeeInfo}
+                resetEventState={this.handleEmployeeInfoState}
+            />
+        }
                 
         return (
-
             <div>
                 <div>
                     <Scheduler 
@@ -150,13 +137,14 @@ class Basic extends Component{
                         newEvent={this.newEvent}
                         onSetAddMoreState={this.onSetAddMoreState}
                         nonAgendaCellHeaderTemplateResolver = {this.nonAgendaCellHeaderTemplateResolver}
-                        leftCustomHeader={addEventForm}
+                        leftCustomHeader={addNewEvent}
                         slotClickedFunc={this.slotClickedFunc}
                     />
                     {popover}
                 </div>
                 {editEvent}
                 {deleteEvent}
+                {empInfo}
             </div>
         )
     }
@@ -183,7 +171,7 @@ class Basic extends Component{
         })
     }
 
-    addResource = (resourceName) => {
+/*     addResource = (resourceName) => {
         let schedulerData = this.state.viewModel;
         let newFreshId = schedulerData.resources.length + 1;
         let newFreshName = resourceName;
@@ -191,7 +179,7 @@ class Basic extends Component{
         this.setState({
             viewModel: schedulerData
         })
-    }
+    } */
 
     prevClick = (schedulerData)=> {
         schedulerData.prev();
@@ -232,13 +220,17 @@ class Basic extends Component{
                 newFreshId = item.id + 1;
         });
 
+        let startHour = new Date(start).getHours()
+        let startMinutes = new Date(start).getMinutes()
+        let endHour = new Date(end).getHours()
+        let endMinutes = new Date(start).getMinutes()
+        
         let newEvent = {
             id: newFreshId,
-            title: 'New event',
+            title: startHour+":"+startMinutes+"-"+endHour+":"+endMinutes,
             start: new Date(start),
             end: new Date(end),
             resourceId: slotId,
-            bgColor: 'green'
         }   
 
         schedulerData.addEvent(newEvent);
@@ -298,10 +290,39 @@ class Basic extends Component{
         }
     }
 
-    slotClickedFunc = (schedulerData, slot) => {
-        alert(`You just clicked a ${schedulerData.isEventPerspective ? 'task':'resource'}.{id: ${slot.slotId}, name: ${slot.slotName}}`);
+    nonAgendaCellHeaderTemplateResolver = (schedulerData, item, formattedDateItems, style) => {
+        let datetime = schedulerData.localeMoment(item.time);
+        let isCurrentDate = false;
+  
+        if (schedulerData.viewType === ViewTypes.Day) {
+            isCurrentDate = datetime.isSame(new Date(), 'hour');
+        }
+        else {
+            isCurrentDate = datetime.isSame(new Date(), 'day');
+        }
+  
+        if (isCurrentDate) {
+            style.backgroundColor = '#118dea';
+            style.color = 'white';
+        }
+  
+        return (
+            <th key={item.time} className={`header3-text`} style={style}>
+                {
+                    formattedDateItems.map((formattedItem, index) => (
+                        <div key={index}
+                             dangerouslySetInnerHTML={{__html: formattedItem.replace(/[0-9]/g, '<b>$&</b>')}}/>
+                    ))
+                }
+            </th>
+        );
     }
 
+    slotClickedFunc = (schedulerData, slot) => {
+        this.setState({
+            employeeInfo: slot
+        })
+    }
 }
 
 export default withDragDropContext(Basic)

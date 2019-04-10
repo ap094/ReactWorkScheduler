@@ -48,7 +48,7 @@ export default {
     endResizable: true,
     movable: true,
     creatable: true,
-    crossResourceMove: false,
+    crossResourceMove: true,
     checkConflict: false,
     scrollToSpecialMomentEnabled: true,
     eventItemPopoverEnabled: true,
