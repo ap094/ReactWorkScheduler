@@ -272,7 +272,7 @@ class Scheduler extends Component {
             );
         };
 
-        let popover = <div className="popover-calendar"><Calendar fullscreen={false} onSelect={this.onSelect}/></div>;
+        let popover = <div className="popover-calendar"><Calendar fullscreen={false} onSelect={this.onSelect}/><div align="center"><button onClick={this.goToToday} className="btn btn-link">Today</button></div></div>;
         let schedulerHeader = <div />;
         if(config.headerEnabled) {
             schedulerHeader = (
@@ -477,6 +477,15 @@ class Scheduler extends Component {
 
         const {onSelectDate, schedulerData} = this.props;
         onSelectDate(schedulerData, date);
+    }
+
+    goToToday = () => {
+        this.setState({
+            visible: false,
+        });
+
+        const {onSelectDate, schedulerData} = this.props;
+        onSelectDate(schedulerData, new Date());
     }
 }
 

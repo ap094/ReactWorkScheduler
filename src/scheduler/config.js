@@ -48,7 +48,7 @@ export default {
     endResizable: true,
     movable: true,
     creatable: true,
-    crossResourceMove: true,
+    crossResourceMove: false,
     checkConflict: false,
     scrollToSpecialMomentEnabled: true,
     eventItemPopoverEnabled: true,
@@ -71,6 +71,6 @@ export default {
     views: [
         {viewName: 'Dan', viewType: ViewTypes.Day, showAgenda: false, isEventPerspective: false},
         {viewName: 'Tjedan', viewType: ViewTypes.Week, showAgenda: false, isEventPerspective: false},
-        {viewName: 'Mjesec', viewType: ViewTypes.Month, showAgenda: false, isEventPerspective: false}
+        {viewName: 'Mjesec', viewType: ViewTypes.Month, showAgenda: false, isEventPerspective: false},
     ],
 }

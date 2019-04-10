@@ -6,21 +6,18 @@ import 'moment/locale/hr'
 import '../scheduler/css/style.css'
 import 'antd/lib/style/index.css'
 import '../css/basic.css'
-import EditEventForm from './EditEventForm'
-import demoData from '../scheduler/DemoData'
 import AddEventForm from './AddEventForm'
-import AddIcon from '@material-ui/icons/Add';
-import {Fab} from '@material-ui/core'
-import DeleteDialog from './DeleteDialog';
+import EditEventForm from './EditEventForm'
+import DeleteDialog from './DeleteDialog'
+import demoData from '../scheduler/DemoData'
+
 
 class Basic extends Component{
     constructor(props){
         super(props);
 
         let today = moment().format(DATE_FORMAT);
-        let schedulerData = new SchedulerData(today, ViewTypes.Week, false, false, {
-            crossResourceMove: false,
-        });
+        let schedulerData = new SchedulerData(today, ViewTypes.Week, false, false);
 
         schedulerData.localeMoment.locale('hr');
         schedulerData.setResources(DemoData.resources);
@@ -36,7 +33,6 @@ class Basic extends Component{
             events: demoData.events,
             resources: demoData.resources,
             colors: demoData.colors,
-            visible: false,
         }
     }
 
@@ -77,29 +73,6 @@ class Basic extends Component{
         this.setState({
             eventToDelete: null
         })
-    }
-
-    /*****************ADD EVENT*******************/
-    showModal = () => {
-        this.setState({ visible: true });
-    }
-    handleCancel = () => {
-        this.setState({ visible: false });
-    }
-    handleCreate = () => {
-        const form = this.form;
-        form.validateFields((err, values) => {
-            if (err) {
-                return;
-            }
-            this.addEvent(values.title, values.start, values.end, values.resourceId, values.bgColor)
-            form.resetFields();
-            this.setState({ visible: false });
-        });
-        
-    }
-    saveFormRef = (form) => {
-        this.form = form;
     }
 
     render(){
@@ -146,17 +119,9 @@ class Basic extends Component{
             />;
         }
 
-        let leftCustomHeader = (
+        let addEventForm = (
             <div>
-                <Fab onClick={this.showModal} color="primary" title="Add new event">
-                    <AddIcon/>
-                </Fab>
-                <br/>
                 <AddEventForm
-                    ref={this.saveFormRef}
-                    visible={this.state.visible}
-                    onCancel={this.handleCancel}
-                    onCreate={this.handleCreate}
                     addEvent={this.addEvent}
                     employees={this.state.resources}
                     colors={this.state.colors}
@@ -185,7 +150,7 @@ class Basic extends Component{
                         newEvent={this.newEvent}
                         onSetAddMoreState={this.onSetAddMoreState}
                         nonAgendaCellHeaderTemplateResolver = {this.nonAgendaCellHeaderTemplateResolver}
-                        leftCustomHeader={leftCustomHeader}
+                        leftCustomHeader={addEventForm}
                         slotClickedFunc={this.slotClickedFunc}
                     />
                     {popover}
