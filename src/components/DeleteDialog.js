@@ -37,17 +37,20 @@ class DeleteDialog extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <DialogTitle>{"Are you sure you want to delete this event?"}</DialogTitle>
+          <DialogTitle>
+            Jeste li sigurni da želite izbrisati ovaj događaj?
+            <hr/>
+          </DialogTitle>
           <DialogContent>
             <DialogContentText>
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <button onClick={this.handleClose} className="btn btn-primary">
-              No
+              Ne
             </button>
             <button onClick={this.handleSubmit} className="btn btn-danger">
-              Yes
+              Da
             </button>
           </DialogActions>
         </Dialog>

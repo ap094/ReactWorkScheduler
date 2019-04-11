@@ -272,7 +272,7 @@ class Scheduler extends Component {
             );
         };
 
-        let popover = <div className="popover-calendar"><Calendar fullscreen={false} onSelect={this.onSelect}/><div align="center"><button onClick={this.goToToday} className="btn btn-link">Today</button></div></div>;
+        let popover = <div className="popover-calendar"><Calendar fullscreen={false} onSelect={this.onSelect}/><div align="center"><button onClick={this.goToToday} className="btn btn-link">Danas</button></div></div>;
         let schedulerHeader = <div />;
         if(config.headerEnabled) {
             schedulerHeader = (

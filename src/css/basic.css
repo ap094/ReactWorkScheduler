@@ -6,7 +6,7 @@
 }
 .input-group-addon
 {
-    margin-left: 25px; 
+    margin-left: 30px; 
 }
 .userInfo
 {
@@ -17,12 +17,17 @@
 #showUserHoursButton
 {
     position: absolute;
-    left: 1%;
+    left: 1.5%;
 }
 .employeeContent
 {
     position: absolute;
-    left: 1%;
+    left: 1.5%;
     margin-top: 40px;
-    font-size: 20px;
+    margin-bottom: 100px;
+    font-size: 18px;
+}
+.datePick
+{
+    width: 220px;
 }

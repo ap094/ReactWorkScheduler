@@ -153,12 +153,12 @@ const DemoData = {
         }
     ],
     colors: [
-        { value: "blue", label: "Blue", color: "#0052CC" },
-        { value: "green", label: "Green", color: "#36B37E" },
-        { value: "orange", label: "Orange", color: "#FF8B00" },
-        { value: "purple", label: "Purple", color: "#5243AA" },
-        { value: "red", label: "Red", color: "#FF5630" },
-        { value: "silver", label: "Silver", color: "#666666" }
+        { value: "red", label: "Crvena", color: "#FF5630" },
+        { value: "purple", label: "Ljubičasta", color: "#5243AA" },
+        { value: "orange", label: "Narančasta", color: "#FF8B00" },
+        { value: "blue", label: "Plava", color: "#0052CC" },
+        { value: "silver", label: "Siva", color: "#666666" },
+        { value: "green", label: "Zelena", color: "#36B37E" },
     ]
 }
 

@@ -58,7 +58,7 @@ export default {
     displayWeekend: true,
     relativeMove: true,
 
-    resourceName: 'Employees',
+    resourceName: 'Zaposlenici',
     taskName: 'Task Name',
     agendaViewHeader: 'Agenda',
     addMorePopoverHeaderFormat: 'dddd, DD.MM.YYYY.',

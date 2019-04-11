@@ -72,9 +72,9 @@ class Basic extends Component{
                     height={this.state.height} 
                     moveEvent={this.moveEvent}
                     viewEventClick={this.edit}
-                    viewEventText="Edit"
+                    viewEventText="Uredi"
                     viewEvent2Click={this.delete}
-                    viewEvent2Text="Delete"
+                    viewEvent2Text="Izbriši"
                 />;
         }
         
@@ -131,9 +131,9 @@ class Basic extends Component{
                         onViewChange={this.onViewChange}
                         eventItemClick={this.eventClicked}
                         viewEventClick={this.edit}
-                        viewEventText="Edit"
+                        viewEventText="Uredi"
                         viewEvent2Click={this.delete}
-                        viewEvent2Text="Delete"
+                        viewEvent2Text="Izbriši"
                         updateEventStart={this.updateEventStart}
                         updateEventEnd={this.updateEventEnd}
                         moveEvent={this.moveEvent}
@@ -231,7 +231,7 @@ class Basic extends Component{
 
         let newEvent = {
             id: newFreshId,
-            title: "New event",
+            title: "Novi događaj",
             start: new Date(start),
             end: new Date(end),
             resourceId: slotId,

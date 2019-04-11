@@ -51,63 +51,66 @@ class AddEventForm extends React.Component {
         const { employees, colors } = this.props;
         return(
         <div>
-        <button onClick={this.showModal} className="btn btn-primary btn-sm">Add new event</button>
+        <button onClick={this.showModal} className="btn btn-primary btn-sm">Dodaj novi događaj</button>
         <Modal
             visible={this.state.visible}
-            title="New Event"
-            okText="Create"
+            title="Kreiraj novi događaj"
+            okText="Kreiraj"
+            cancelText="Odustani"
             onCancel={this.handleCancel}
             onOk={this.handleCreate}
         >
             <Form layout="vertical">
-                <FormItem label="Title">
+                <FormItem label="Naziv">
                     {getFieldDecorator('title', {
-                        rules: [{ required: true, message: 'Please input the name of the event!' }],
+                        rules: [{ required: true, message: 'Unesite naziv događaja!' }],
                     })(
-                        <Input placeholder="New event"/>
+                        <Input placeholder="Novi događaj"/>
                     )}
                 </FormItem>
-                <FormItem label="Employess">
+                <FormItem label="Zaposlenici">
                     {getFieldDecorator('resourceId', {
-                        rules: [{ required: true, message: 'Please choose one of available employees!' }],
+                        rules: [{ required: true, message: 'Odaberite jednog od zaposlenika!' }],
                     })(
-                        <Select placeholder="Name Surname">
+                        <Select placeholder="Ime Prezime">
                             {employees.map((employe) =>
                                 <Option key={employe.id}>{employe.name}</Option>
                             )}
                         </Select>
                     )}
                 </FormItem>
-                <FormItem label="Date" required={true} >
+                <FormItem label="Datum" required={true} >
                 <div className="input-group">
                     <FormItem>
                         {getFieldDecorator('start', {
-                            rules: [{ required: true, message: 'Please input the start date!' }],
+                            rules: [{ required: true, message: 'Unesite početni datum!' }],
                         })(
                             <DateTimePicker
                                 format='DD-MM-YYYY HH:mm'
-                                placeholder="Start date"
+                                placeholder="Početni datum"
+                                className="datePick"
                             />
                         )}
                     </FormItem>
                     <span className="input-group-addon"></span>
                     <FormItem>
                         {getFieldDecorator('end', {
-                            rules: [{ required: true, message: 'Please input the end date!' }],
+                            rules: [{ required: true, message: 'Unesite završni datum!' }],
                         })(
                             <DateTimePicker 
                                 format='DD-MM-YYYY HH:mm'
-                                placeholder="End date"
+                                placeholder="Završni datum"
+                                className="datePick"
                             />
                         )}
                     </FormItem>
                 </div>
                 </FormItem>
-                <FormItem label="Event color">
+                <FormItem label="Boja događaja">
                     {getFieldDecorator('bgColor', {
-                        rules: [{ required: false, message: 'Please choose one of available colors!' }],
+                        rules: [{ required: false, message: 'Odaberite jednu od ponuđenih boja!' }],
                     })(
-                        <Select placeholder="color">
+                        <Select placeholder="boja">
                             {colors.map((color) =>
                                 <Option key={color.value}>{color.label}</Option>
                             )}

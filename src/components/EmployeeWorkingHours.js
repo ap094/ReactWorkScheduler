@@ -75,7 +75,7 @@ class EmployeeWorkingHours extends React.Component{
 
         return(
             <div>
-                <button onClick={this.toggle} id="showUserHoursButton" className="btn btn-primary btn-sm">{(this.state.open===true)? "Show employee hours": "Hide employee hours"}</button>
+                <button onClick={this.toggle} id="showUserHoursButton" className="btn btn-primary btn-sm">{(this.state.open===true)? "Prikaži sate zaposlenika": "Sakrij"}</button>
                 <div>
                     {!this.state.open && 
                         <div className="employeeContent">

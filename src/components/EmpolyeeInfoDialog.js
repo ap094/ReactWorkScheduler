@@ -41,7 +41,7 @@ class EmployeeDialog extends React.Component {
             onClose={this.handleClose}
         >
             <DialogTitle>
-                Employee Information
+                Informacije o zaposleniku
                 <hr/>
             </DialogTitle>
             <DialogContent>
@@ -52,7 +52,7 @@ class EmployeeDialog extends React.Component {
             </DialogContent>
             <DialogActions>
                 <button onClick={this.handleClose} className="btn btn-primary btn-sm">
-                Close
+                Zatvori
                 </button>
             </DialogActions>
         </Dialog>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
  Dialog, DialogActions, DialogContent, DialogTitle, TextField
@@ -91,32 +91,32 @@ class EditEventForm extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Fragment>
+      <div>
         <Dialog
             open={this.state.open}
             onClose={this.handleClose}
             classes={{ paper: classes.dialog }}
         >
             <DialogTitle>
-                Edit event
+                Uredi događaj
             </DialogTitle>
             <DialogContent>
                 <form>
                   <TextField
-                    label="Title"
+                    label="Naziv događaja"
                     value={title}
                     onChange={this.handleChange('title')}
                     margin="normal"
                   />
                   <br/>
-                  <span>Start date</span>
+                  <span>Početni datum</span>
                   <DateTimePicker
                     value={start}
                     onChange={value => this.setState({ updatedEvent: { ...this.state.updatedEvent, start: value} })}
                     format='DD-MM-YYYY HH:mm'
                   />
                   <br/>
-                  <span>End date</span>
+                  <span>Završni datum</span>
                   <DateTimePicker
                     value={end}
                     onChange={value => this.setState({ updatedEvent: { ...this.state.updatedEvent, end: value} })}
@@ -126,14 +126,14 @@ class EditEventForm extends React.Component {
             </DialogContent>
             <DialogActions>
                 <button onClick={this.handleClose} className="btn btn-primary btn-sm">
-                Cancel
+                Odustani
                 </button>
                 <button onClick={this.handleSubmit} className="btn btn-success btn-sm">
-                Update
+                Ažuriraj
                 </button>
             </DialogActions>
         </Dialog>
-      </Fragment>
+      </div>
     );
   }
 }
