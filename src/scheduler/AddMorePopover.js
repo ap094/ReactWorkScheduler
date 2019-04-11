@@ -68,6 +68,8 @@ class AddMorePopover extends Component {
                                    />
                 eventList.push(eventItem);
             }
+            console.log(eventList)
+
         });
 
         return (

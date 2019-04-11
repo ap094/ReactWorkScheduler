@@ -345,18 +345,28 @@ export default class SchedulerData {
     }
 
     updateEventStart(event, newStart) {
+        let startHour = new Date(newStart).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+        let endHour = event.end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+
         this._detachEvent(event);
+        event.title = startHour +"-"+ endHour;
         event.start = new Date(newStart);
         this._attachEvent(event);
         this._createRenderData();
     }
 
     updateEventEnd(event, newEnd) {
+        let startHour = event.start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+        let endHour = new Date(newEnd).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+
+        event.title = startHour +"-"+ endHour;
         event.end = new Date(newEnd);
         this._createRenderData();
     }
 
     moveEvent(event, newSlotId, newSlotName, newStart, newEnd){
+        let startHour = new Date(newStart).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+        let endHour = new Date(newEnd).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
         this._detachEvent(event);
         if(this.isEventPerspective) {
             event.groupId = newSlotId;
@@ -364,6 +374,7 @@ export default class SchedulerData {
         }
         else
             event.resourceId = newSlotId;
+        event.title = startHour +"-"+ endHour;
         event.end = new Date(newEnd);
         event.start = new Date(newStart);
         this._attachEvent(event);

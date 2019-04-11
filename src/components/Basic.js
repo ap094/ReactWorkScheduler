@@ -229,9 +229,11 @@ class Basic extends Component{
                 newFreshId = item.id + 1;
         });
 
+        let startHour = new Date(start).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+        let endHour = new Date(end).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
         let newEvent = {
             id: newFreshId,
-            title: "Novi događaj",
+            title: startHour +"-"+ endHour,
             start: new Date(start),
             end: new Date(end),
             resourceId: slotId,

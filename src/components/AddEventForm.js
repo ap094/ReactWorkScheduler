@@ -36,7 +36,35 @@ class AddEventForm extends React.Component {
             if (err) {
                 return;
             }
-            this.props.addEvent(values.title, values.start, values.end, values.resourceId, values.bgColor)
+
+            let startHourTitle = new Date(values.start).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+            let endHourTitle = new Date(values.end).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+
+            let time1 = (values.start).getTime();
+            let time2 = (values.end).getTime();
+            let daysDifference = parseInt((time2-time1)/(24*3600*1000));
+        
+            var today = new Date(values.start);
+            let endHour = new Date(values.end).getHours();
+            let endMinute = new Date(values.end).getMinutes();
+
+            var endOfToday = new Date(today);
+            endOfToday.setHours(endHour, endMinute, 0);
+
+            var diffTodayDay = endOfToday.getTime() - today.getTime();
+            var msec = diffTodayDay;
+            var hh = Math.floor(msec / 1000 / 60 / 60);
+            msec -= hh * 1000 * 60 * 60;
+            var mm = Math.floor(msec / 1000 / 60);
+            msec -= mm * 1000 * 60;
+            
+            for (let i = 0; i <= daysDifference; i++) {
+                let newStartTime = new Date( today.setDate(values.start.getDate() +i))
+                let newEndTime = new Date( today.setDate(values.start.getDate() +i));
+                newEndTime = new Date(newEndTime.setHours(newEndTime.getHours()+hh));
+                newEndTime = new Date(newEndTime.setMinutes(newEndTime.getMinutes()+mm));
+                this.props.addEvent(startHourTitle +"-"+ endHourTitle,newStartTime,newEndTime, values.resourceId, values.bgColor);
+            } 
             form.resetFields();
             this.setState({ visible: false });
         });
@@ -61,13 +89,6 @@ class AddEventForm extends React.Component {
             onOk={this.handleCreate}
         >
             <Form layout="vertical">
-                <FormItem label="Naziv">
-                    {getFieldDecorator('title', {
-                        rules: [{ required: true, message: 'Unesite naziv događaja!' }],
-                    })(
-                        <Input placeholder="Novi događaj"/>
-                    )}
-                </FormItem>
                 <FormItem label="Zaposlenici">
                     {getFieldDecorator('resourceId', {
                         rules: [{ required: true, message: 'Odaberite jednog od zaposlenika!' }],
@@ -86,7 +107,7 @@ class AddEventForm extends React.Component {
                             rules: [{ required: true, message: 'Unesite početni datum!' }],
                         })(
                             <DateTimePicker
-                                format='DD-MM-YYYY HH:mm'
+                                format={'DD-MM-YYYY HH:mm'}
                                 placeholder="Početni datum"
                                 className="datePick"
                             />

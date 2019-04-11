@@ -37,7 +37,7 @@ const DemoData = {
         }
     ],
     events: [
-        {
+         {
             id: 1,
             start: new Date('2019-04-11 09:30:00'),
             end: new Date('2019-04-11 13:30:00'),
@@ -150,7 +150,7 @@ const DemoData = {
             resourceId: 'r7',
             title: 'r7 event 2',
             bgColor: '#746048'
-        }
+        } 
     ],
     colors: [
         { value: "red", label: "Crvena", color: "#FF5630" },

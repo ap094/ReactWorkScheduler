@@ -99,16 +99,10 @@ class EditEventForm extends React.Component {
         >
             <DialogTitle>
                 Uredi događaj
+                <hr/>
             </DialogTitle>
             <DialogContent>
                 <form>
-                  <TextField
-                    label="Naziv događaja"
-                    value={title}
-                    onChange={this.handleChange('title')}
-                    margin="normal"
-                  />
-                  <br/>
                   <span>Početni datum</span>
                   <DateTimePicker
                     value={start}
