@@ -3,141 +3,153 @@ const DemoData = {
         {
             id: 'r1',
             name: 'Ante Antic',
+            weeklyWorkingHours: 40
         },
         {
             id: 'r2',
             name: 'Mate Matic',
+            weeklyWorkingHours: 40
         },
         {
             id: 'r3',
             name: 'Sime Simic',
+            weeklyWorkingHours: 40
         },
         {
             id: 'r4',
             name: 'Jure Juric',
+            weeklyWorkingHours: 20
         },
         {
             id: 'r5',
             name: 'Ivo Ivic',
+            weeklyWorkingHours: 20
         },
         {
             id: 'r6',
             name: 'Luka Lukic',
+            weeklyWorkingHours: 50
         },
         {
             id: 'r7',
             name: 'Kreso Kresic',
+            weeklyWorkingHours: 40
         }
     ],
     events: [
         {
             id: 1,
-            start: new Date('2019-04-09 09:30:00'),
-            end: new Date('2019-04-09 13:30:00'),
-            resourceId: 'r2',
-            title: 'I am finished',
+            start: new Date('2019-04-11 09:30:00'),
+            end: new Date('2019-04-11 13:30:00'),
+            resourceId: 'r1',
+            title: 'r1 event 1',
+            bgColor: 'red'
 
         },
         {
             id: 2,
-            start: new Date('2019-04-18 12:30:00'),
-            end: new Date('2019-04-26 23:30:00'),
-            resourceId: 'r2',
-            title: 'I am not resizable',
-            resizable: false
+            start: new Date('2019-04-08 12:30:00'),
+            end: new Date('2019-04-08 23:30:00'),
+            resourceId: 'r1',
+            title: 'r1 event 2',
+            bgColor: 'red'
         },
         {
             id: 3,
-            start: new Date('2019-04-19 12:30:00'),
-            end: new Date('2019-04-20 23:30:00'),
-            resourceId: 'r3',
-            title: 'I am not movable',
-            movable: false
+            start: new Date('2019-04-09 12:30:00'),
+            end: new Date('2019-04-09 23:30:00'),
+            resourceId: 'r2',
+            title: 'r2 event 1',
+            bgColor: '#7c586d'
         },
         {
             id: 4,
-            start: new Date('2019-04-19 14:30:00'),
-            end: new Date('2019-04-20 23:30:00'),
-            resourceId: 'r4',
-            title: 'I am not start-resizable',
-            startResizable: false,
+            start: new Date('2019-04-10 14:30:00'),
+            end: new Date('2019-04-10 23:30:00'),
+            resourceId: 'r2',
+            title: 'r2 event 2',
+            bgColor: '#7c586d'
         },
         {
             id: 5,
-            start: new Date('2019-04-19 15:30:00'),
-            end: new Date('2019-04-20 23:30:00'),
-            resourceId: 'r5',
-            title: 'I am not end-resizable',
-            endResizable: false
+            start: new Date('2019-04-08 15:30:00'),
+            end: new Date('2019-04-08 23:30:00'),
+            resourceId: 'r3',
+            title: 'r3 event 1',
+            bgColor: 'orange'
         },
         {
             id: 6,
-            start: new Date('2019-04-19 15:35:00'),
-            end: new Date('2019-04-19 23:30:00'),
-            resourceId: 'r6',
-            title: 'I am normal'
+            start: new Date('2019-04-12 15:35:00'),
+            end: new Date('2019-04-12 23:30:00'),
+            resourceId: 'r3',
+            title: 'r3 event 2',
+            bgColor: 'orange'
         },
         {
             id: 7,
-            start: new Date('2019-04-19 15:40:00'),
-            end: new Date('2019-04-20 23:30:00'),
-            resourceId: 'r7',
-            title: 'I am exceptional',
+            start: new Date('2019-04-09 15:40:00'),
+            end: new Date('2019-04-09 23:30:00'),
+            resourceId: 'r4',
+            title: 'r4 event 1',
             bgColor: '#FA9E95'
         },
         {
             id: 8,
-            start: new Date('2019-04-19 15:50:00'),
-            end: new Date('2019-04-19 23:30:00'),
-            resourceId: 'r1',
-            title: 'I am locked',
-            movable: false,
-            resizable: false,
-            bgColor: 'red'
+            start: new Date('2019-04-11 15:50:00'),
+            end: new Date('2019-04-11 23:30:00'),
+            resourceId: 'r4',
+            title: 'r4 event 2',
+            bgColor: '#FA9E95'
         },
         {
             id: 9,
-            start: new Date('2019-04-19 16:30:00'),
-            end: new Date('2019-04-27 23:30:00'),
-            resourceId: 'r1',
-            title: 'R1 has many tasks 1'
+            start: new Date('2019-04-09 16:30:00'),
+            end: new Date('2019-04-09 23:30:00'),
+            resourceId: 'r5',
+            title: 'r5 event 1',
+            bgColor: 'purple'
         },
         {
             id: 10,
-            start: new Date('2019-04-19 17:30:00'),
-            end: new Date('2019-04-19 23:30:00'),
-            resourceId: 'r1',
-            title: 'R1 has recurring tasks every week on Tuesday, Friday',
-            rrule: 'FREQ=WEEKLY;DTSTART=20191219T013000Z;BYDAY=TU,FR',
-            bgColor: '#f759ab'
+            start: new Date('2019-04-11 17:30:00'),
+            end: new Date('2019-04-11 23:30:00'),
+            resourceId: 'r5',
+            title: 'r5 event 2',
+            rrule: 'FREQ=WEEKLY;DTSTART=20190411T013000Z;BYDAY=TU,FR',
+            bgColor: 'purple'
         },
         {
             id: 11,
-            start: new Date('2019-04-19 18:30:00'),
-            end: new Date('2019-04-20 23:30:00'),
-            resourceId: 'r1',
-            title: 'R1 has many tasks 3'
+            start: new Date('2019-04-08 18:30:00'),
+            end: new Date('2019-04-08 23:30:00'),
+            resourceId: 'r6',
+            title: 'r6 event 1',
+            bgColor: 'blue'
         },
         {
             id: 12,
-            start: new Date('2019-04-20 18:30:00'),
-            end: new Date('2019-04-20 23:30:00'),
-            resourceId: 'r1',
-            title: 'R1 has many tasks 4'
+            start: new Date('2019-04-10 18:30:00'),
+            end: new Date('2019-04-10 23:30:00'),
+            resourceId: 'r6',
+            title: 'r6 event 2',
+            bgColor: 'blue'
         },
         {
             id: 13,
-            start: new Date('2019-04-21 18:30:00'),
-            end: new Date('2019-04-24 23:30:00'),
-            resourceId: 'r1',
-            title: 'R1 has many tasks 5'
+            start: new Date('2019-04-10 18:30:00'),
+            end: new Date('2019-04-10 23:30:00'),
+            resourceId: 'r7',
+            title: 'r7 event 1',
+            bgColor: '#746048'
         },
         {
             id: 14,
-            start: new Date('2019-04-23 18:30:00'),
-            end: new Date('2019-04-27 23:30:00'),
-            resourceId: 'r1',
-            title: 'R1 has many tasks 6'
+            start: new Date('2019-04-12 18:30:00'),
+            end: new Date('2019-04-12 23:30:00'),
+            resourceId: 'r7',
+            title: 'r7 event 2',
+            bgColor: '#746048'
         }
     ],
     colors: [

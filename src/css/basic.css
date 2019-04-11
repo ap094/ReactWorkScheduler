@@ -14,3 +14,15 @@
     font-size: large;
     margin-left: 10px; 
 }
+#showUserHoursButton
+{
+    position: absolute;
+    left: 1%;
+}
+.employeeContent
+{
+    position: absolute;
+    left: 1%;
+    margin-top: 40px;
+    font-size: 20px;
+}

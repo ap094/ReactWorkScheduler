@@ -11,6 +11,8 @@ import EditEventForm from './EditEventForm'
 import DeleteDialog from './DeleteDialog'
 import demoData from '../scheduler/DemoData'
 import EmployeeInfoDialog from './EmpolyeeInfoDialog'
+import EmployeeWorkingHours from './EmployeeWorkingHours'
+
 
 class Basic extends Component{
     constructor(props){
@@ -30,6 +32,7 @@ class Basic extends Component{
             height: 0,
             eventToEdit: null,
             eventToDelete: null,
+            events: demoData.events,
             resources: demoData.resources,
             colors: demoData.colors,
             employeeInfo: null
@@ -145,6 +148,12 @@ class Basic extends Component{
                 {editEvent}
                 {deleteEvent}
                 {empInfo}
+                <div>
+                    <EmployeeWorkingHours
+                        events={this.state.events}
+                        employees={this.state.resources}
+                    />
+                </div>
             </div>
         )
     }
@@ -220,14 +229,9 @@ class Basic extends Component{
                 newFreshId = item.id + 1;
         });
 
-        let startHour = new Date(start).getHours()
-        let startMinutes = new Date(start).getMinutes()
-        let endHour = new Date(end).getHours()
-        let endMinutes = new Date(start).getMinutes()
-        
         let newEvent = {
             id: newFreshId,
-            title: startHour+":"+startMinutes+"-"+endHour+":"+endMinutes,
+            title: "New event",
             start: new Date(start),
             end: new Date(end),
             resourceId: slotId,
