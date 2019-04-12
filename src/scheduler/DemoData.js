@@ -42,7 +42,7 @@ const DemoData = {
             start: new Date('2019-04-11 09:30:00'),
             end: new Date('2019-04-11 13:30:00'),
             resourceId: 'r1',
-            title: 'r1 event 1',
+            title: '09:30-13:30',
             bgColor: 'red'
 
         },
@@ -51,7 +51,7 @@ const DemoData = {
             start: new Date('2019-04-08 08:30:00'),
             end: new Date('2019-04-08 23:30:00'),
             resourceId: 'r1',
-            title: 'r1 event 2',
+            title: '08:30-23:30',
             bgColor: 'red'
         },
         {
@@ -59,7 +59,7 @@ const DemoData = {
             start: new Date('2019-04-09 12:30:00'),
             end: new Date('2019-04-09 23:30:00'),
             resourceId: 'r2',
-            title: 'r2 event 1',
+            title: '12:30-23:30',
             bgColor: '#7c586d'
         },
         {
@@ -67,7 +67,7 @@ const DemoData = {
             start: new Date('2019-04-10 14:30:00'),
             end: new Date('2019-04-10 23:30:00'),
             resourceId: 'r2',
-            title: 'r2 event 2',
+            title: '14:30-23:30',
             bgColor: '#7c586d'
         },
         {
@@ -75,7 +75,7 @@ const DemoData = {
             start: new Date('2019-04-08 15:30:00'),
             end: new Date('2019-04-08 23:30:00'),
             resourceId: 'r3',
-            title: 'r3 event 1',
+            title: '15:30-23:30',
             bgColor: 'orange'
         },
         {
@@ -83,7 +83,7 @@ const DemoData = {
             start: new Date('2019-04-12 15:35:00'),
             end: new Date('2019-04-12 23:30:00'),
             resourceId: 'r3',
-            title: 'r3 event 2',
+            title: '15:35-23:30',
             bgColor: 'orange'
         },
         {
@@ -91,7 +91,7 @@ const DemoData = {
             start: new Date('2019-04-09 15:40:00'),
             end: new Date('2019-04-09 23:30:00'),
             resourceId: 'r4',
-            title: 'r4 event 1',
+            title: '15:40-23:30',
             bgColor: '#FA9E95'
         },
         {
@@ -99,7 +99,7 @@ const DemoData = {
             start: new Date('2019-04-11 15:50:00'),
             end: new Date('2019-04-11 23:30:00'),
             resourceId: 'r4',
-            title: 'r4 event 2',
+            title: '15:50-23:30',
             bgColor: '#FA9E95'
         },
         {
@@ -107,7 +107,7 @@ const DemoData = {
             start: new Date('2019-04-09 16:30:00'),
             end: new Date('2019-04-09 23:30:00'),
             resourceId: 'r5',
-            title: 'r5 event 1',
+            title: '16:30-23:30',
             bgColor: 'purple'
         },
         {
@@ -115,7 +115,7 @@ const DemoData = {
             start: new Date('2019-04-11 17:30:00'),
             end: new Date('2019-04-11 23:30:00'),
             resourceId: 'r5',
-            title: 'r5 event 2',
+            title: '17:30-23:30',
             rrule: 'FREQ=WEEKLY;DTSTART=20190411T013000Z;BYDAY=TU,FR',
             bgColor: 'purple'
         },
@@ -124,7 +124,7 @@ const DemoData = {
             start: new Date('2019-04-08 18:30:00'),
             end: new Date('2019-04-08 23:30:00'),
             resourceId: 'r6',
-            title: 'r6 event 1',
+            title: '18:30-23:30',
             bgColor: 'blue'
         },
         {
@@ -132,7 +132,7 @@ const DemoData = {
             start: new Date('2019-04-10 18:30:00'),
             end: new Date('2019-04-10 23:30:00'),
             resourceId: 'r6',
-            title: 'r6 event 2',
+            title: '18:30-23:30',
             bgColor: 'blue'
         },
         {
@@ -140,7 +140,7 @@ const DemoData = {
             start: new Date('2019-04-10 18:30:00'),
             end: new Date('2019-04-10 23:30:00'),
             resourceId: 'r7',
-            title: 'r7 event 1',
+            title: '18:30-23:30',
             bgColor: '#746048'
         },
         {
@@ -148,7 +148,7 @@ const DemoData = {
             start: new Date('2019-04-08 18:30:00'),
             end: new Date('2019-04-08 23:30:00'),
             resourceId: 'r7',
-            title: 'r7 event 2',
+            title: '18:30-23:30',
             bgColor: '#746048'
         },
         {
@@ -156,7 +156,7 @@ const DemoData = {
             start: new Date('2019-04-09 08:30:00'),
             end: new Date('2019-04-09 23:30:00'),
             resourceId: 'r7',
-            title: 'r7 event 3',
+            title: '18:30-23:30',
             bgColor: '#746048'
         },
         {
@@ -164,7 +164,7 @@ const DemoData = {
             start: new Date('2019-04-11 08:30:00'),
             end: new Date('2019-04-11 23:30:00'),
             resourceId: 'r7',
-            title: 'r7 event 4',
+            title: '18:30-23:30',
             bgColor: '#746048'
         },
         {
@@ -172,7 +172,7 @@ const DemoData = {
             start: new Date('2019-04-12 08:30:00'),
             end: new Date('2019-04-12 23:30:00'),
             resourceId: 'r7',
-            title: 'r7 event 5',
+            title: '18:30-23:30',
             bgColor: '#746048'
         } 
     ],
