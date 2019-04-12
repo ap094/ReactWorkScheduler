@@ -8,7 +8,7 @@ const DemoData = {
         {
             id: 'r2',
             name: 'Mate Matic',
-            weeklyWorkingHours: 40
+            weeklyWorkingHours: 30
         },
         {
             id: 'r3',
@@ -18,17 +18,17 @@ const DemoData = {
         {
             id: 'r4',
             name: 'Jure Juric',
-            weeklyWorkingHours: 20
+            weeklyWorkingHours: 30
         },
         {
             id: 'r5',
             name: 'Ivo Ivic',
-            weeklyWorkingHours: 20
+            weeklyWorkingHours: 30
         },
         {
             id: 'r6',
             name: 'Luka Lukic',
-            weeklyWorkingHours: 50
+            weeklyWorkingHours: 40
         },
         {
             id: 'r7',

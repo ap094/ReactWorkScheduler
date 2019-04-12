@@ -89,7 +89,7 @@ class EmployeeWorkingHours extends React.Component{
                                     {employee.name}
                                     <span> - </span>
                                     <b>{employee.workingHours}:{employee.workingMinutes}</b>
-                                    <span className="errMsg">{(employee.weeklyWorkingHours > employee.workingHours)? employee.name +" ima manje od 40 sati tjedno!": employee.name +" ima prekovremenih sati! ("+(employee.workingHours-employee.weeklyWorkingHours)+")"}</span>
+                                    <span className="errMsg">{(employee.weeklyWorkingHours > employee.workingHours)? employee.name +" ima manje od "+employee.weeklyWorkingHours+" sati tjedno!": employee.name +" ima prekovremenih sati! ("+(employee.workingHours-employee.weeklyWorkingHours)+")"}</span>
                                     <hr/>
                                 </span>
                             )}

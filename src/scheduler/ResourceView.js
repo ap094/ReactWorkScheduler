@@ -16,7 +16,7 @@ class ResourceView extends Component {
 
     render() {
 
-        const {schedulerData, contentScrollbarHeight, slotClickedFunc, slotItemTemplateResolver} = this.props;
+        const {schedulerData, contentScrollbarHeight, slotClickedFunc, slotItemTemplateResolver, employees} = this.props;
         const {renderData} = schedulerData;
 
         let width = schedulerData.getResourceTableWidth() - 2;
@@ -26,9 +26,20 @@ class ResourceView extends Component {
                 slotClickedFunc(schedulerData, item);
             }}><span className="expander-space"></span>{item.slotName}</a>
                 : <span><span className="expander-space"></span><span>{item.slotName}</span></span>;
+
+            let wh = <p></p>;
+            employees.map((employee) => {
+
+                if(employee.id === item.slotId)
+                {
+                    wh = employee.weeklyWorkingHours
+                }
+                return false
+            })
             let slotItem = (
                 <div title={item.slotName} className="overflow-text header2-text" style={{textAlign: "left"}}>
                     {a}
+                    <span className="resoViewWH">- {wh} sat/tj</span>
                 </div>
             );
             if(!!slotItemTemplateResolver) {

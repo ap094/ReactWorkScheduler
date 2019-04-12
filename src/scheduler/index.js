@@ -81,6 +81,7 @@ class Scheduler extends Component {
             scrollTop: 0,
             documentWidth: document.documentElement.clientWidth,
             documentHeight: document.documentElement.clientHeight,
+            employees: DemoData.resources
         };
 
         if(schedulerData.isSchedulerResponsive())
@@ -235,6 +236,7 @@ class Scheduler extends Component {
                                 <ResourceView
                                     {...this.props}
                                     contentScrollbarHeight={resourcePaddingBottom}
+                                    employees={this.state.employees}
                                 />
                             </div>
                         </div>
