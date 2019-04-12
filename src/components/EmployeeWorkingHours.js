@@ -79,12 +79,18 @@ class EmployeeWorkingHours extends React.Component{
                 <div>
                     {!this.state.open && 
                         <div className="employeeContent">
+                            <span>
+                                <hr/>
+                                <b>Ime Prezime</b>
+                                <b id="wHtitle">Radni sati(tjedan)</b>
+                            </span><br/><br/>
                             {employeeWorkingHours.map((employee) =>
                                 <span key={employee.id}>
                                     {employee.name}
                                     <span> - </span>
                                     <b>{employee.workingHours}:{employee.workingMinutes}</b>
-                                    <br/>
+                                    <span className="errMsg">{(employee.weeklyWorkingHours > employee.workingHours)? employee.name +" ima manje od 40 sati tjedno!": employee.name +" ima prekovremenih sati! ("+(employee.workingHours-employee.weeklyWorkingHours)+")"}</span>
+                                    <hr/>
                                 </span>
                             )}
                         </div>

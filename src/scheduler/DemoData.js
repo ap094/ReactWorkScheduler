@@ -48,7 +48,7 @@ const DemoData = {
         },
         {
             id: 2,
-            start: new Date('2019-04-08 12:30:00'),
+            start: new Date('2019-04-08 08:30:00'),
             end: new Date('2019-04-08 23:30:00'),
             resourceId: 'r1',
             title: 'r1 event 2',
@@ -145,10 +145,34 @@ const DemoData = {
         },
         {
             id: 14,
-            start: new Date('2019-04-12 18:30:00'),
-            end: new Date('2019-04-12 23:30:00'),
+            start: new Date('2019-04-08 18:30:00'),
+            end: new Date('2019-04-08 23:30:00'),
             resourceId: 'r7',
             title: 'r7 event 2',
+            bgColor: '#746048'
+        },
+        {
+            id: 15,
+            start: new Date('2019-04-09 08:30:00'),
+            end: new Date('2019-04-09 23:30:00'),
+            resourceId: 'r7',
+            title: 'r7 event 3',
+            bgColor: '#746048'
+        },
+        {
+            id: 16,
+            start: new Date('2019-04-11 08:30:00'),
+            end: new Date('2019-04-11 23:30:00'),
+            resourceId: 'r7',
+            title: 'r7 event 4',
+            bgColor: '#746048'
+        },
+        {
+            id: 17,
+            start: new Date('2019-04-12 08:30:00'),
+            end: new Date('2019-04-12 23:30:00'),
+            resourceId: 'r7',
+            title: 'r7 event 5',
             bgColor: '#746048'
         } 
     ],

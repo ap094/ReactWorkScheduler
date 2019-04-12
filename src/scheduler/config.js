@@ -39,7 +39,7 @@ export default {
     defaultEventBgColor: 'green',
     selectedAreaColor: '#7EC2F3',
     nonWorkingTimeHeadColor: '#999999',
-    nonWorkingTimeHeadBgColor: '#fff0f6',
+    nonWorkingTimeHeadBgColor: '#f0f0f0',
     nonWorkingTimeBodyBgColor: '#fff0f6',
     summaryColor: '#666',
     summaryPos: SummaryPos.TopRight,
